@@ -1,0 +1,19 @@
+$sidebar-width: 300px;
+
+.app {
+    display: grid;
+    grid-template-columns: $sidebar-width auto;
+    grid-template-rows: auto;
+}
+
+main {
+    grid-column-start: 2;
+}
+
+.sidebar {
+    position: fixed;
+    background-color: #fff;
+    height: 100vh;
+    width: $sidebar-width;
+    box-shadow: $box-shadow-md;
+}

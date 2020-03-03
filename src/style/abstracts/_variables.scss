@@ -1,0 +1,17 @@
+/* Color Scheme */
+
+$color-primary: #31C0FB;
+$color-secondary: #8D53FF;
+$color-tertiary: #0FCBA7;
+$grey: #9BA6B2;
+$grey-light: #bbc5d1;
+$background: #F6F8FA;
+
+/* Animation Timing and Cubic Bezier */
+
+$snappy: 300ms cubic-bezier(0.15, 1, 0.3, 1);
+
+/* Neumorphism */
+
+$box-shadow-md: 0px 0px 20px 0px rgba(0, 0, 0, 0.03);
+$box-shadow-sm: 0px 2px 8px 0px rgba(0, 0, 0, 0.05)

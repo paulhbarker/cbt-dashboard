@@ -1,0 +1,16 @@
+.watching {
+    color: #fff;
+    background: $color-primary;
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: $box-shadow-sm;
+
+    h3 {
+        color: #fff;
+        font-weight: bold;
+        margin-right: auto;
+    }
+}

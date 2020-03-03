@@ -1,0 +1,15 @@
+.certification {
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    background: #fff;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: $box-shadow-sm;
+
+    h3 {
+        color: #000;
+        font-weight: bold;
+        margin-right: auto;
+    }
+}

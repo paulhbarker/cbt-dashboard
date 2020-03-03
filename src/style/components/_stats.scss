@@ -1,0 +1,15 @@
+.watched-stats {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat {
+    display: flex;
+    margin-bottom: 25px;
+
+    h2 {
+        color: #000;
+        font-size: 16px;
+        font-weight: 600;
+    }
+}

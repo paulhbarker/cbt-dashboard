@@ -1,0 +1,24 @@
+.watched-stats-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+
+    &.primary {
+        color: $color-primary;
+        background: lighten($color-primary, 35);
+    }
+
+    &.secondary {
+        color: $color-secondary;
+        background: lighten($color-secondary, 30);
+    }
+
+    &.grey {
+        color: $grey;
+        background: lighten($grey, 30);
+    }
+}
