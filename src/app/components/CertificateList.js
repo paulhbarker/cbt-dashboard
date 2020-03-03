@@ -25,8 +25,8 @@ const CertificateList = () => {
 	        return <div>No Data</div>
         }
 
-		const components = certificates.map(cert => (
-			<Certificate title={cert.title} completionDate={cert.completedAt} />
+		const components = certificates.map((cert, i) => (
+			<Certificate key={i} title={cert.title} completionDate={cert.completedAt} />
 		));
 
 		return components;
