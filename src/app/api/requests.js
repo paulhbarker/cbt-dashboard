@@ -13,7 +13,7 @@ export const getAccessToken = async () => {
 
         setAccessToken(accessToken);
     } catch (err) {
-        console.log(err);
+        console.error(err);
     }
 };
 

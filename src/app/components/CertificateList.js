@@ -9,23 +9,27 @@ const CertificateList = () => {
 	const [certificates, setCertificates] = useState([]);
 
 	useEffect(() => {
+        async function fetchCerts() {
+            if (auth) {
+                const response = await getCertificateList(auth.authInfo.id);
+
+                setCertificates(response.courses);
+            }
+        }
+
 	    fetchCerts();
 	}, [auth])
 
 	const renderCerts = () => {
+	    if (certificates.length === 0) {
+	        return <div>No Data</div>
+        }
+
 		const components = certificates.map(cert => (
 			<Certificate title={cert.title} completionDate={cert.completedAt} />
 		));
 
 		return components;
-	}
-
-	async function fetchCerts() {
-	    if (auth) {
-            const response = await getCertificateList(auth.authInfo.id);
-
-            setCertificates(response.courses);
-        }
 	}
 
 	return (

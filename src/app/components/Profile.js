@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import Leaderboard from "./Leaderboard";
-import StatList from "./StatList";
+import React from 'react';
 import get from "../utility/get";
+import StatList from "./StatList";
+import Leaderboard from "./Leaderboard";
 import { useAuth } from "../context/AuthContext";
-// import API from '../api';
 
 const Profile = () => {
-	const [auth, setAuth] = useAuth();
+	const [auth] = useAuth();
 
 	const displayName = get(auth, 'profile.display_name', 'Loading...');
 	const accountNumber = get(auth, 'primaryGroupId', null);

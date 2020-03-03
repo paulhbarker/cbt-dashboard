@@ -9,22 +9,26 @@ const Watchlist = () => {
     const [views, setViews] = useState({})
 
     useEffect(() => {
+        async function fetchViewingHistory() {
+            if (auth) {
+                const response = await getViewingHistory();
+
+                setViews(response.items);
+            }
+        }
+
         fetchViewingHistory();
     }, [auth])
+
+    if (!views[0]) {
+        return <div>No Data</div>
+    }
 
 	return (
 		<div className='watchlist'>
 			<Watching collection={views[0]}/>
 		</div>
 	)
-
-    async function fetchViewingHistory() {
-        if (auth) {
-            const response = await getViewingHistory();
-
-            setViews(response.items);
-        }
-    }
 }
 
 export default Watchlist;

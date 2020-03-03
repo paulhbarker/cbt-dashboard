@@ -11,6 +11,19 @@ const Leaderboard = () => {
     const [leaderboardRank, setLeaderboardRank] = useState(0);
 
     useEffect(() => {
+        async function fetchLeaderboardData() {
+            if (auth) {
+                const accountNumber = get(auth, 'primaryGroupId', null);
+
+                const response = await getLeaderboardData(accountNumber);
+
+                const minutes = Math.floor(response.member.score / 60);
+
+                setValidatedMinutes(minutes);
+                setLeaderboardRank(response.member.rank);
+            }
+        }
+
         fetchLeaderboardData();
     }, [auth])
 
@@ -21,22 +34,9 @@ const Leaderboard = () => {
 	return (
 	    <div className='leaderboard-stats'>
             <p>Validated Minutes: <Highlight>{formatValidatedMinutes(validatedMinutes)}</Highlight></p>
-            <p>Rank <strong>#{leaderboardRank}</strong></p>
+            <p>Rank <strong>{leaderboardRank}</strong></p>
         </div>
 	)
-
-    async function fetchLeaderboardData() {
-        if (auth) {
-            const accountNumber = get(auth, 'primaryGroupId', null);
-
-            const response = await getLeaderboardData(accountNumber);
-
-            const minutes = Math.floor(response.member.score / 60);
-
-            setValidatedMinutes(minutes);
-            setLeaderboardRank(response.member.rank);
-        }
-    }
 }
 
 export default Leaderboard;

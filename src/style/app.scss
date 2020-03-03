@@ -1,11 +1,7 @@
-/* Fonts */
-
 /* Abstracts */
 
 @import "abstracts/variables";
 @import "abstracts/mixins";
-
-/* Vendors */
 
 /* Base */
 
@@ -21,18 +17,14 @@
 /* Components */
 
 @import "components/main";
-@import "components/sidebar";
-@import "components/avatar";
-@import "components/profile";
-@import "components/highlight";
-@import "components/leaderboard";
 @import "components/stats";
+@import "components/avatar";
+@import "components/sidebar";
+@import "components/profile";
+@import "components/watching";
+@import "components/highlight";
 @import "components/statsIcon";
+@import "components/leaderboard";
 @import "components/sectionTitle";
 @import "components/certification";
 @import "components/certificateList";
-@import "components/watching";
-
-/* Pages */
-
-/* Vendor */

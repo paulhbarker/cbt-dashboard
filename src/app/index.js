@@ -6,7 +6,7 @@ import { useAuth } from "./context/AuthContext";
 import { getAccessToken, getProfile } from "./api/requests";
 
 function App() {
-    const [auth, setAuth] = useAuth();
+    const setAuth = useAuth()[1];
 
     useEffect(() => {
         async function authenticate() {
@@ -17,7 +17,7 @@ function App() {
         }
 
         authenticate();
-    }, []);
+    }, [setAuth]);
 
     return (
         <div className='app'>
