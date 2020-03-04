@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Watching from "./Watching";
 import { useAuth } from '../context/AuthContext';
 import { getViewingHistory } from '../api/requests';
+import get from '../utility/get';
 
 const Watchlist = () => {
     const [auth] = useAuth();
@@ -13,7 +14,9 @@ const Watchlist = () => {
             if (auth) {
                 const response = await getViewingHistory();
 
-                setViews(response.items);
+                const items = get(response, 'items', []);
+
+                setViews(items);
             }
         }
 

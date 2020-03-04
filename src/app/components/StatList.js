@@ -5,6 +5,7 @@ import Video from "../icons/Video";
 import Clock from "../icons/Clock";
 import { useAuth } from "../context/AuthContext";
 import { getViewingStats } from "../api/requests";
+import get from '../utility/get';
 
 const StatList = () => {
 	const initialState = {
@@ -21,9 +22,13 @@ const StatList = () => {
             if (auth) {
                 const stats = await getViewingStats();
 
-                const hoursWatched = Math.floor(stats.total_seconds_watched / 3600).toLocaleString();
-                const completedCourses = stats.completed_collections.toLocaleString();
-                const completedVideos = stats.completed_videos.toLocaleString();
+                const watchtime = get(stats, 'total_seconds_watched', 0);
+                const collections = get(stats, 'completed_collections', 0);
+                const videos = get(stats, 'completed_videos', 0);
+
+                const hoursWatched = Math.floor(watchtime / 3600).toLocaleString();
+                const completedCourses = collections.toLocaleString();
+                const completedVideos = videos.toLocaleString();
 
                 setWatchedData({
                     hoursWatched,

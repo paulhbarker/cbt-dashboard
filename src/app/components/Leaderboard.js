@@ -17,10 +17,13 @@ const Leaderboard = () => {
 
                 const response = await getLeaderboardData(accountNumber);
 
-                const minutes = Math.floor(response.member.score / 60);
+                const seconds = get(response, 'member.score', 0);
+                const rank = get(response, 'member.rank', 0);
+
+                const minutes = Math.floor(seconds / 60);
 
                 setValidatedMinutes(minutes);
-                setLeaderboardRank(response.member.rank);
+                setLeaderboardRank(rank);
             }
         }
 
@@ -34,7 +37,7 @@ const Leaderboard = () => {
 	return (
 	    <div className='leaderboard-stats'>
             <p>Validated Minutes: <Highlight>{formatValidatedMinutes(validatedMinutes)}</Highlight></p>
-            <p>Rank <strong>{leaderboardRank}</strong></p>
+            <p>Rank <strong>#{leaderboardRank}</strong></p>
         </div>
 	)
 }
